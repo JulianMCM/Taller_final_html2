@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ejemplo de alternar color de elementos pares e impares</title>
+	<style>
+		li {
+			color: black;
+		}
+
+		li:nth-child(2n) {
+			background-color: lightgray;
+		}
+	</style>
+</head>
+<body>
+	<h1>Lista de frutas</h1>
+	<ol>
+		<li>Manzana</li>
+		<li>Plátano</li>
+		<li>Naranja</li>
+		<li>Pera</li>
+		<li>Fresa</li>
+		<li>Uva</li>
+		<li>Mango</li>
+		<li>Piña</li>
+		<li>Cereza</li>
+		<li>Melón</li>
+	</ol>
+    <button class="boton">Alternar color</button>
+	<script>
+		var boton = document.getElementsByClassName('boton');
+		var estilos = document.styleSheets[0];
+
+		boton[0].addEventListener('click', function () {
+			if (estilos.cssRules[1].selectorText == 'li:nth-child(2n)') {
+				estilos.cssRules[1].selectorText = 'li:nth-child(2n+1)';
+			} else {
+				estilos.cssRules[1].selectorText = 'li:nth-child(2n)';
+			}
+		});
+	</script>
+</body>
+</html>
